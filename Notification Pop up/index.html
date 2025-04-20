@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification
+    </title>
+    <style>
+        #popup{
+            display: none;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h2>Click the button to see notification</h2>
+
+    <button onclick="showNotification()">Show Notification</button>
+    
+    <div id="popup">
+      This is a notification!
+    </div>
+    
+    <script>
+      function showNotification() {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'block';
+    
+        // Hide after 3 seconds
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 3000);
+      }
+    </script>
+    
+</body>
+</html>

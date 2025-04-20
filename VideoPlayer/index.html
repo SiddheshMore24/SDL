@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Video Playlist</h2>
+    <video id="VideoPlayer" width="500" controls>
+        <source id="VideoSourse" src="" type="video/mp4">
+    </video>
+    <br>
+    <br>
+    <button onclick="prev()">Previous</button>
+    <button onclick="next()">Next</button>
+
+    </button>
+
+    <script>
+        const videos=[
+            'v1.mp4',
+            'v2.mp4'
+        ];
+        let current=0;
+
+        const videoPlayer= document.getElementById('VideoPlayer');
+        const VideoSourse = document.getElementById('VideoSourse');
+
+        function loadVideo(index)
+        {
+            VideoSourse.src=videos[index];
+            videoPlayer.load();
+
+        }
+        function next()
+        {
+             current = (current+1)%videos.length;
+             loadVideo(current);
+        }
+        function prev()
+        {
+             current = (current-1+videos.length)%videos.length;
+             loadVideo(current);
+        }
+        loadVideo(current);
+    </script>
+</body>
+</html>
