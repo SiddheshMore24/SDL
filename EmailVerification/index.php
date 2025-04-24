@@ -1,3 +1,12 @@
+<!-- 
+  CREATE TABLE userdata(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name varchar(100),
+    email varchar(100)
+)
+Add data manually from php admin dashboard
+here we are only concern with email. I have taken password for formalities.
+-->
 <?php
 
 $conn = mysqli_connect("localhost","root","siddhesh","sdl");
