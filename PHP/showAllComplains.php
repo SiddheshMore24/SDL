@@ -21,7 +21,7 @@ while ($row = $result->fetch_assoc()) {
     }else 
     {
         echo "
-        <td><button>Ram </button></td>
+        <td><button>Ram</button></td>
         ";
 
     }
