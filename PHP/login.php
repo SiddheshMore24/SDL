@@ -12,10 +12,11 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     if($result->num_rows==1)
     {
         $user = $result->fetch_assoc();
+        $user_id= $user['id'];
 
         if($password==$user['password'])
         {
-           header("Location:dashboard.php");
+           header("Location:dashboard.php?id='$user_id'");
         }
         else 
         {

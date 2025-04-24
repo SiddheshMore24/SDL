@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facebook Registration Form</title>
+  <style>
+    *{
+      padding: 0%;
+      margin: 0%;
+
+    }
+    body { 
+      
+      font-family: Arial; 
+      height: 100vh;
+      width: 100vw;
+      text-align: center;
+    }
+    form { 
+      /* margin-top: 5% ; */
+      margin: 5% auto;
+      max-width: 400px;  }
+    label { display: block; margin-top: 15px; }
+    input { width: 100%; padding: 10px; margin-top: 5px; }
+    .error { color: red; font-size: 14px; }
+    button { margin-top: 20px; padding: 10px 15px; background: blue; color: white; border: none; cursor: pointer; }
+
+    #div-main{
+      background-color: blanchedalmond;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 1rem auto;
+      
+    }
+    form{
+      /* display: flex; */
+      /* flex-direction: column; */
+      align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+      border-radius: 20;
+      padding: 1rem 3rem;
+      /* color: red; */
+      background-color: rgb(102, 102, 238);
+    }
+    h2{
+      font-size: 3rem;
+      /* margin-top: 6rem; */
+    }
+    .header{ 
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: red;
+      gap: 20rem;
+    }
+    .img-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      object-fit: cover;
+      overflow: hidden;
+      border: none;
+      border-radius: 30px;
+      background-color: green;
+    }
+    .logo-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+    img{
+      height: 3rem;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="div-main">
+    <div class = "header">
+     <div class="logo-div">
+      <div class="img-div">
+        <img src="apple.jpg" alt="n">
+      </div>
+      <h2 >Facebook Registration</h2>
+     </div>
+      <button>Logout</button>
+    </div>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <label>Full Name:
+        <input type="text" id="name" onblur="validateForm()"/>
+        <div class="error" id="nameError"></div>
+      </label>
+  
+      <label>Email:
+        <input type="text" id="email" onblur="validateForm()" />
+        <div class="error" id="emailError"></div>
+      </label>
+  
+      <label>Password:
+        <input type="password" id="password" onblur="validateForm()"/>
+        <div class="error" id="passwordError"></div>
+      </label>
+  
+      <label>Confirm Password:
+        <input type="password" id="confirmPassword" onblur="validateForm()"/>
+        <div class="error" id="confirmPasswordError"></div>
+      </label>
+  
+      <button type="submit">Register</button>
+    </form>
+
+  </div>
+ 
+
+  <script>
+    function validateForm() {
+      let valid = true;
+
+      // Clear previous errors
+      document.getElementById('nameError').innerText = "";
+      document.getElementById('emailError').innerText = "";
+      document.getElementById('passwordError').innerText = "";
+      document.getElementById('confirmPasswordError').innerText = "";
+
+      // Get values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Validate fields
+      if (name === "") {
+        document.getElementById('nameError').innerText = "Name is required";
+        valid = false;
+      }
+      
+     // reg ex = /^[^\s@]+@[^\s@]+\.
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === "") {
+        document.getElementById('emailError').innerText = "Email is required";
+        valid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById('emailError').innerText = "Invalid email format";
+        valid = false;
+      }
+
+      if (password.length < 6 ) {
+        document.getElementById('passwordError').innerText = "Password must be at least 6 characters";
+        valid = false;
+      }
+
+      if (password !== confirmPassword) {
+        document.getElementById('confirmPasswordError').innerHTML = "<button>Hello</button>";
+        valid = false;
+      }
+
+      return valid;
+    }
+  </script>
+
+</body>
+</html>

@@ -8,6 +8,8 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     $password = $_POST['password'];
 
 
+
+    
     $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password')";
 
     if($conn->query("select * from user where email = '$email'")->num_rows==1)

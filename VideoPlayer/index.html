@@ -25,13 +25,12 @@
         let current=0;
 
         const videoPlayer= document.getElementById('VideoPlayer');
-        const VideoSourse = document.getElementById('VideoSourse');
+        const VideoSourse= document.getElementById('VideoSourse');
 
         function loadVideo(index)
         {
             VideoSourse.src=videos[index];
             videoPlayer.load();
-
         }
         function next()
         {

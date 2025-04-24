@@ -1,3 +1,8 @@
+<?php
+$id_admin = $_GET['id'];
+echo "hello . Jai Shree ram $id_admin";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
